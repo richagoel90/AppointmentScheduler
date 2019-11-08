@@ -7,7 +7,6 @@ namespace AppointmentConsoleApp
     {
         static void Main(string[] args)
         {
-            Scheduler.UserList_Initializer();
             UserInfo LoggedInUser =null;
             UserInfo GuestUser =null;
 
@@ -48,7 +47,7 @@ namespace AppointmentConsoleApp
                         }
                         while(true)
                         {
-                            Console.Write("Here is the Guest User List:");
+                            Console.WriteLine("Here is the Guest User List:");
                             var GuerstUsers = Scheduler.getGuestUserList(LoggedInUser.UserId);
                             foreach (var guest in GuerstUsers)
                             {
@@ -70,7 +69,7 @@ namespace AppointmentConsoleApp
                         var DatenTime = DateTime.Parse(Console.ReadLine());
                         Console.Write("Enter the Subject of Appointment:");
                         var Subject = Console.ReadLine();
-                        Scheduler.Book_Appointment(LoggedInUser.FirstName,GuestUser.FirstName, DatenTime, Subject);
+                        Scheduler.Book_Appointment(LoggedInUser.UserId,LoggedInUser.FirstName,GuestUser.FirstName, DatenTime, Subject);
                         break;
                     case 3:
                         if (LoggedInUser == null)
@@ -85,7 +84,8 @@ namespace AppointmentConsoleApp
                                 $" HostUser:{myAppointment.HostUser}, " +
                                 $" GuestUser:{myAppointment.GuestUser}, " +
                                 $" Subject:{myAppointment.Subject}, " +
-                                $" Status:{myAppointment.Status}, ");
+                                $" Status:{myAppointment.Status}," +
+                                $"Date:{myAppointment.DatenTime} ");
                         }
                         break;
                 }

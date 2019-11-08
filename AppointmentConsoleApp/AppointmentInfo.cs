@@ -4,7 +4,6 @@ namespace AppointmentConsoleApp
 {
     public class AppointmentInfo
     {
-        private static int lastAppointmentId = 0;
         #region Properties
         public int AppointmentID { get; set; }
         /// <summary>
@@ -24,12 +23,13 @@ namespace AppointmentConsoleApp
         /// </summary>
         public string Subject { get; set; }
         public string Status { get; private set; }
+        public int HostUserID { get; set; }
+        public virtual UserInfo User { get; set; }
         #endregion
 
         #region Constructor
         public AppointmentInfo()
         {
-            AppointmentID = ++lastAppointmentId;
             Status = "Waiting";
         }
         #endregion
