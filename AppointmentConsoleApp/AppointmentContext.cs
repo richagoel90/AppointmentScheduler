@@ -5,7 +5,7 @@ using System.Text;
 
 namespace AppointmentConsoleApp
 {
-    class AppointmentContext:DbContext
+    public class AppointmentContext:DbContext
     {
         public DbSet<AppointmentInfo> Appointments { get; set; }
         public DbSet<UserInfo> Users { get; set; }

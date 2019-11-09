@@ -5,7 +5,7 @@ using System.Text;
 
 namespace AppointmentConsoleApp
 {
-    static class Scheduler
+    public static class Scheduler
     {
         private static AppointmentContext db = new AppointmentContext();
         
